@@ -9,15 +9,11 @@ exports.indexController = (req, res, next) => {
 
 //////////
 exports.findtimeandsalaryController = (req, res, next) => {
-  Staff.find().then((Staff) => {
-    res
-      .render("indexPage/findtimeandsalary", {
-        prods: Staff,
-        pageTitle: "findtimeandsalary",
-        path: "/findtimeandsalary",
-      })
-      
-  }).catch((err) => console.log(err));;
+  res.render("indexPage/findtimeandsalary", {
+    prods: Staff,
+    pageTitle: "findtimeandsalary",
+    path: "/findtimeandsalary",
+  });
 };
 
 exports.contactController = (req, res, next) => {
@@ -27,14 +23,14 @@ exports.contactController = (req, res, next) => {
   });
 };
 
-exports.checkInandOutController = (req, res, next) => {
-  res.render("indexPage/checkInandOut", {
-    pageTitle: "checkInandOut",
-    path: "/checkInandOut",
+exports.conFirm = (req, res, next) => {
+  res.render("indexPage/conFirm", {
+    pageTitle: "conFirm",
+    path: "/conFirm",
   });
 };
 
-exports.comfirmalController = (req, res, next) => {
+exports.comfirmTimeController = (req, res, next) => {
   res.render("indexPage/comfirmTime", {
     pageTitle: "comfirmTime",
     path: "/comfirmTime",
@@ -48,7 +44,7 @@ exports.covidInfoController = (req, res, next) => {
   });
 };
 
-exports.staffController = (req, res, next) => {
+/* exports.staffController = (req, res, next) => {
   res.render("indexPage/addStaff", {
     pageTitle: "addStaff",
     path: "/addStaff",
@@ -71,3 +67,4 @@ exports.staffAddController = (req, res, next) => {
       console.log(err);
     });
 };
+ */

@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 
 const indexRouter = require("./routers/index");
+const checkInOutRouter = require("./routers/checkInOut");
 const errorController = require("./controllers/error");
 
 app.set("view engine", "ejs");
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(indexRouter);
+app.use(checkInOutRouter);
 app.use(errorController.get404);
 
 mongoose

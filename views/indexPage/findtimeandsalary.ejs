@@ -25,48 +25,11 @@
 </head>
 
 <body>
-    <main>
-        <% if (prods.length> 0) { %>
-            <div class="d-flex justify-content-center align-items-center flex-column  ">
-                <% for (let staff of prods) { %>
-                    <div class="d-flex staffIndex ">
-                        <h1>Name Staffs:</h1>
-                        <h1 class="staff__title">
-                            <%= staff.name %>
-                        </h1>
-                    </div>
-
-                    <div class="d-flex staffIndex">
-                        <h1>Title:</h1>
-                        <h1 class="staff__title">
-                            <%= staff.title %>
-                        </h1>
-                    </div>
-                    <div class="staff__image">
-                        <div class="d-flex staffIndex">
-                            <h1>From:</h1>
-                            <h1 h1 class="staff__title">
-                                <%= staff.from %>
-                            </h1>
-                        </div>
-                        
-                    </div>
-                    <div class="card__content">
-                        <div class="d-flex staffIndex">
-                            <h1>From:</h1>
-                            <h1 class="staff__price">
-                                <%= staff.work %>
-                            </h1>
-                        </div>
-                        
-                    </div>
-
-                    <% } %>
-            </div>
-            <% } else { %>
-                <h1>No staffs Found!</h1>
-                <% } %>
-    </main>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <li><a href="/checkIn">Check In </a></li>
+        <li><a href="/checkOut">Check Out </a></li>
+        <li><a href="/">Holiday </a></li>
+    </div>
 </body>
 
 </html>

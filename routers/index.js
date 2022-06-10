@@ -9,15 +9,15 @@ router.get('/findtimeandsalary',index.findtimeandsalaryController)
 
 router.get('/contact',index.contactController)
 
-router.get('/checkInandOut',index.checkInandOutController)
+router.get('/conFirm',index.conFirm)
 
-router.get('/comfirmTime',index.comfirmalController)
+router.get('/comfirmTime',index.comfirmTimeController)
 
 router.get('/covidInfo',index.covidInfoController)
 
-router.get('/addStaff',index.staffController)
+/* router.get('/addStaff',index.staffController)
 
-router.get('/addStaff',index.staffAddController)
+router.get('/addStaff',index.staffAddController) */
 
 
 
