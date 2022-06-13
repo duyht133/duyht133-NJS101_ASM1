@@ -20,6 +20,7 @@ const staffSchema = new Schema({
   },
   startDate:{
     type: Date,
+    default: Date.now,
   },
   Image:{
     type:String,

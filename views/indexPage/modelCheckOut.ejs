@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div  <div class=" d-flex justify-content-center flex-column"></div>
+    <% if (name.length> 0) { %>
+        <div class=" d-flex justify-content-center flex-column">
+            <h1>check Out</h1>
+            <h3> Họ Và tên Nhân Viên:
+                <%= name%>
+            </h3>
+            <h3>
+                <% if (employment==="CTY" ) { %>
+                    <h3> Làm việc tại: Công Ty</h3>
+                    <% } %>
+                        <% if (employment==="HOME" ) { %>
+                            <h3> Làm việc tại: Nhà</h3>
+                            <% } %>
+                                <% if (employment==="CLIENT" ) { %>
+                                    <h3> Làm việc tại: Khách hàng</h3>
+                                    <% } %>
+            </h3>
+            <h3> số giờ đã làm:
+                <%= TimeEnd%>
+            </h3>
+            <button><a href="/">Home</a></button>
+        </div>
+        <% } else { %>
+            <h1>No staffs Found!</h1>
+            <% } %>
+    </div>
+    
+</body>
+
+</html>

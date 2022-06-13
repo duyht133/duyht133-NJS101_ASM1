@@ -27,33 +27,17 @@
 <body>
     <main>
         <% if (prods.length> 0) { %>
-            <div class="d-flex justify-content-center flex-column  ">
-                <% for (let staff of prods) { %>
-                    <img class="w-25 p-4" src="http://thuyred.com/upload/images/ban-meo-anh-long-ngan-xam-xanh.jpeg" alt="<%= staff.name %>">
-                    <div class="d-flex staffIndex ">
-                        <h3>Name:</h3>
-                        <h3 class="staff__title">
-                            <%= staff.name %>
-                        </h3>
-                    </div>
 
-                    <div class="d-flex">
-                        <form class="" action="/modelCheckOut" name="employment" method="POST">
-                            <input class="d-none" readonly name="id" type="id" value="<%= staff._id %>"/>
-                            <button type="submit">Check Out</button>
-                        </form>
-                    </div>
+            <form action="/action_page.php">
+                <label for="fname">Chọn ngày:</label><br>
+                <input type="date" id="fname" name="fname" value="John"><br>
+                <label for="lname">N:</label><br>
+                <input type="text" id="lname" name="lname" value="Doe"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+            <% } %>
 
-                    <div class="d-flex text-danger ">
-                        <% if (staff.work === false) { %>
-                            <h3>End Of Shift</h3>
-                            <% } %>
-                    </div>
-                    <% } %>
-            </div>
-            <% } else { %>
-                <h1>No staffs Found!</h1>
-                <% } %>
+
     </main>
 </body>
 
