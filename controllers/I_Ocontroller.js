@@ -15,17 +15,20 @@ exports.Incontroller = (req, res, next) => {
 
 ////// model check in
 exports.modelCheckIncontroller = (req, res, next) => {
-  Staff.findById(req.body.id)// lấy ID từ form người dùng chọn.
+  Staff.findById(req.body.id) // lấy ID từ form người dùng chọn.
     .then((data) => {
-      data.employment = req.body.employment;// lấy employments từ form người dùng chọn.
+      data.employment = req.body.employment; // lấy employments từ form người dùng chọn.
       data.work = true; // set collection work true hiển thị xác nhận bắc đầu.
+      data.startDate = new Date();
+      data.startTime = new Date();
       return data.save(); // lưu dữ liệu lên server
     })
-    .then((data) => { // truyền dữ liệu vào modelchekin để hiển thị.
+    .then((data) => {
+      // truyền dữ liệu vào modelchekin để hiển thị.
       res.render("indexPage/modelCheckIn", {
         name: data.name,
-        employment:data.employment,
-        startTime:data.startTime,
+        employment: data.employment,
+        startTime: data.startTime,
         pageTitle: "modelCheckIn",
         path: "/modelCheckIn",
       });
@@ -45,25 +48,28 @@ exports.Outcontroller = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
-
 exports.modelCheckOutcontroller = (req, res, next) => {
-  Staff.findById(req.body.id)// lấy ID từ form người dùng chọn.
+  Staff.findById(req.body.id) // lấy ID từ form người dùng chọn.
     .then((data) => {
       data.work = false; // set collection work true hiển thị xác nhận bắc đầu.
       return data.save(); // lưu dữ liệu lên server
     })
-    .then((data) => { // truyền dữ liệu vào modelchekin để hiển thị.
-      const timeEnd = (new Date() - data.startTime) / 60000
-      console.log("start",data.startTime.toString())
-      console.log("end",new Date().toString())
+    .then((data) => {
+      // truyền dữ liệu vào modelchekin để hiển thị.
+      const timeEnd = new Date().getHours() - data.startTime.getHours();
       res.render("indexPage/modelCheckOut", {
         name: data.name,
-        employment:data.employment,
+        employment: data.employment,
         TimeEnd: timeEnd,
         pageTitle: "modelCheckOut",
         path: "/modelCheckOut",
       });
+
+      /*   data.startDate = new Date();
+      data.startTime = data.startTime;
+      return data.save(); */
     })
+
     .catch((err) => console.log(err));
 };
 

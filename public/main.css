@@ -29,3 +29,13 @@
     align-items: center;
     justify-content: center;
 }
+.indexIO li{
+    list-style: none;
+    margin: 90px 100px;
+    padding:5px;
+    color: blue;
+    font-size:25px;
+    background-color: orange;
+    border-radius:10px;
+}
+.indexIO li a{text-decoration: none;}

@@ -8,11 +8,11 @@ exports.indexController = (req, res, next) => {
 };
 
 //////////
-exports.findtimeandsalaryController = (req, res, next) => {
-  res.render("indexPage/findtimeandsalary", {
+exports.CheckI_OController = (req, res, next) => {
+  res.render("indexPage/IndexI_O", {
     prods: Staff,
-    pageTitle: "findtimeandsalary",
-    path: "/findtimeandsalary",
+    pageTitle: "IndexI_O",
+    path: "/IndexI_O",
   });
 };
 

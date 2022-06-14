@@ -5,7 +5,7 @@ const index = require("../controllers/indexController")
 
 router.get('/',index.indexController)
 
-router.get('/findtimeandsalary',index.findtimeandsalaryController)
+router.get('/IndexI_O',index.CheckI_OController)
 
 router.get('/contact',index.contactController)
 
