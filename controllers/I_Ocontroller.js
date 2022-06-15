@@ -50,13 +50,14 @@ exports.Outcontroller = (req, res, next) => {
 
 exports.modelCheckOutcontroller = (req, res, next) => {
   Staff.findById(req.body.id) // lấy ID từ form người dùng chọn.
+    /* .then((data) => {
+      return data.save(); 
+    }) */
     .then((data) => {
-      data.work = false; // set collection work true hiển thị xác nhận bắc đầu.
-      return data.save(); // lưu dữ liệu lên server
-    })
-    .then((data) => {
+      console.log(data);
       // truyền dữ liệu vào modelchekin để hiển thị.
-      const timeEnd = new Date().getHours() - data.startTime.getHours();
+      const newStartTime = new Date().getSeconds();
+      const timeEnd = newStartTime - data.startTime.getSeconds();
       res.render("indexPage/modelCheckOut", {
         name: data.name,
         employment: data.employment,
@@ -64,12 +65,12 @@ exports.modelCheckOutcontroller = (req, res, next) => {
         pageTitle: "modelCheckOut",
         path: "/modelCheckOut",
       });
-
-      /*   data.startDate = new Date();
-      data.startTime = data.startTime;
-      return data.save(); */
+      data.work = false; // set collection work true hiển thị xác nhận bắc đầu.
+      if (newStartTime > data.startTime.getSeconds()) {
+        data.hourWork = timeEnd;
+      }
+      return data.save(); // lưu dữ liệu lên server
     })
-
     .catch((err) => console.log(err));
 };
 
@@ -82,6 +83,27 @@ exports.holidaycontroller = (req, res, next) => {
         pageTitle: "holiday",
         path: "/holiday",
       });
+    })
+    .catch((err) => console.log(err));
+};
+
+exports.modelHolidaycontroller = (req, res, next) => {
+  Staff.findById(req.body.id) // lấy ID từ form người dùng chọn.
+    .then((data) => {
+      const setAnnualLeave = data.annualLeave;
+      const datatimeAnnualLeave = req.body.time / 8;
+      const totaltimeAnnualLeave = (setAnnualLeave - datatimeAnnualLeave);
+      console.log(totaltimeAnnualLeave)
+      res.render("indexPage/modelHoliday", {
+        annualLeave: data.annualLeave,
+        id: req.body.id,
+        pageTitle: "modelHoliday",
+        path: "/modelHoliday",
+      });
+      if(req.body.newAnnualLeave == data.annualLeave){
+        data.annualLeave = totaltimeAnnualLeave
+      }
+      return data.save();
     })
     .catch((err) => console.log(err));
 };

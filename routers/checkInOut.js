@@ -10,6 +10,7 @@ router.get('/CheckOut',checkInCheckOut.Outcontroller)
 router.post('/modelCheckOut',checkInCheckOut.modelCheckOutcontroller)
 
 router.get('/holiday',checkInCheckOut.holidaycontroller)
+router.post('/modelHoliday',checkInCheckOut.modelHolidaycontroller)
 
 
 

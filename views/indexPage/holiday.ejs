@@ -25,19 +25,32 @@
 </head>
 
 <body>
-    <main>
+    <main class="d-flex align-items-center justify-content-center">
         <% if (prods.length> 0) { %>
+            <% for (let staff of prods) { %>
+                <div class="d-flex ">
+                    <div class=" d-flex align-items-center justify-content-center flex-column">
+                        <img class="w-50 p-4"
+                            src="http://thuyred.com/upload/images/ban-meo-anh-long-ngan-xam-xanh.jpeg"
+                            alt="<%= staff.name %>">
 
-            <form action="/action_page.php">
-                <label for="fname">Chọn ngày:</label><br>
-                <input type="date" id="fname" name="fname" value="John"><br>
-                <label for="lname">N:</label><br>
-                <input type="text" id="lname" name="lname" value="Doe"><br><br>
-                <input type="submit" value="Submit">
-            </form>
-            <% } %>
+                        <h3>
+                            Name: <%= staff.name %>
+                        </h3>
 
-
+                        <div class="d-flex">
+                            <form class="" action="/modelHoliday" name="employment" method="POST">
+                                <input class="d-none" readonly name="id" type="id"
+                                    value="<%= staff._id %>" />
+                                <button class="text-white bg-primary btnSubmit" type="submit">Nghỉ phép</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                    <% } else { %>
+                        <h1>No staffs Found!</h1>
+                        <% } %>
     </main>
 </body>
 

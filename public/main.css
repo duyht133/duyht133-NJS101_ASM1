@@ -39,3 +39,13 @@
     border-radius:10px;
 }
 .indexIO li a{text-decoration: none;}
+
+.btnSubmit {
+    text-decoration: none;
+    border-radius:10px;
+    border: none;
+    font-Size:25px
+}
+.btnSubmit a{
+    text-decoration: none;
+}

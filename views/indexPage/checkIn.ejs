@@ -25,41 +25,44 @@
 </head>
 
 <body>
-    <main>
+    <main class="d-flex align-items-center justify-content-center">
         <% if (prods.length> 0) { %>
-            <div class="d-flex justify-content-center flex-column  ">
-                <% for (let staff of prods) { %>
-                    <img class="w-25 p-4" src="http://thuyred.com/upload/images/ban-meo-anh-long-ngan-xam-xanh.jpeg" alt="<%= staff.name %>">
-                    <div class="d-flex staffIndex ">
-                        <h3>Name:</h3>
-                        <h3 class="staff__title">
-                            <%= staff.name %>
-                        </h3>
-                    </div>
+            <% for (let staff of prods) { %>
+                <div class="d-flex ">
+                    <div class=" d-flex align-items-center justify-content-center flex-column">
+                        <img class="w-50 p-4"
+                            src="http://thuyred.com/upload/images/ban-meo-anh-long-ngan-xam-xanh.jpeg"
+                            alt="<%= staff.name %>">
 
-                    <div class="d-flex">
-                        <form class="" action="/modelCheckIn" name="employment" method="POST">
-                            <input class="d-none" readonly name="id" type="id" value="<%= staff._id %>"/>
+                        <h3>
+                            Name: <%= staff.name %>
+                        </h3>
+
+                        <form class=" " action="/modelCheckIn" name="employment"
+                            method="POST">
+                            <!-- gửi ngược lại _id qua req để có thể get ra lại -->
+                            <input class="d-none" readonly name="id" type="id"
+                                value="<%= staff._id %>" />
                             <h3>Nơi Làm Việc:</h3>
                             <select name="employment">
                                 <option value="CTY">Công Ty</option>
                                 <option value="HOME">Nhà</option>
                                 <option value="CLIENT">Khách Hàng</option>
                             </select>
-                            <button type="submit">Check In</button>
+                            <button class="text-white bg-success btnSubmit" type="submit">Check In</button>
                         </form>
+                        <div class="d-flex text-success ">
+                            <% if (staff.work) { %>
+                                <h3>Success</h3>
+                                <% } %>
+                        </div>
                     </div>
 
-                    <div class="d-flex text-success ">
-                        <% if (staff.work) { 
-                            %> <h3>Success</h3>
-                            <% } %>
-                    </div>
-                    <% } %>
-            </div>
-            <% } else { %>
-                <h1>No staffs Found!</h1>
+                </div>
                 <% } %>
+                    <% } else { %>
+                        <h1>No staffs Found!</h1>
+                        <% } %>
     </main>
 </body>
 

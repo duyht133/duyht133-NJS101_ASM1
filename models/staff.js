@@ -43,6 +43,9 @@ const staffSchema = new Schema({
   },
   work:{
     type:Boolean,
+  },
+  hourWork:{
+    type:Number,
   }
 });
 
