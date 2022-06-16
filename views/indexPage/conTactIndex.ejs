@@ -30,18 +30,19 @@
             <% for (let staff of prods) { %>
                 <div class="d-flex ">
                     <div class=" d-flex align-items-center justify-content-center flex-column">
-                        <img class="w-50 p-4" src="<%= staff.Image %>" alt="<%= staff.name %>">
+                        <img class="w-50 p-4"
+                            src="<%= staff.Image %>"
+                            alt="<%= staff.name %>">
 
                         <h3>
                             Name: <%= staff.name %>
                         </h3>
 
                         <div class="d-flex">
-                            <form class="" action="/modelHoliday" name="employment" method="POST">
+                            <form class="" action="/modelContact" name="info" method="POST">
                                 <input class="d-none" readonly name="id" type="id"
                                     value="<%= staff._id %>" />
-                                <button class="text-white bg-primary btnSubmit" type="submit">Nghỉ
-                                    phép</button>
+                                <button class="btnSubmit" type="submit">Xem Thông Tin</button>
                             </form>
                         </div>
                     </div>

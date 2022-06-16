@@ -44,27 +44,14 @@ exports.covidInfoController = (req, res, next) => {
   });
 };
 
-/* exports.staffController = (req, res, next) => {
-  res.render("indexPage/addStaff", {
-    pageTitle: "addStaff",
-    path: "/addStaff",
-  });
-};
-
-exports.staffAddController = (req, res, next) => {
-  const title = req.body.title;
-  const staff = new Staff({
-    title: title,
-    userId: req.user,
-  });
-  staff
-    .save()
-    .then(() => {
-      console.log("Created Product");
-      res.redirect("/addStaff");
-    })
-    .catch((err) => {
-      console.log(err);
+exports.indexcontactController = (req, res, next) => {
+  Staff.find()
+  .then((data) => {
+    res.render("indexPage/conTactIndex", {
+      prods: data,
+      pageTitle: "conTactIndex",
+      path: "/conTactIndex",
     });
+  })
+  .catch((err) => console.log(err));
 };
- */

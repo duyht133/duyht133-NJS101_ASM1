@@ -30,16 +30,13 @@
             <% for (let staff of prods) { %>
                 <div class="d-flex ">
                     <div class=" d-flex align-items-center justify-content-center flex-column">
-                        <img class="w-50 p-4"
-                            src="http://thuyred.com/upload/images/ban-meo-anh-long-ngan-xam-xanh.jpeg"
-                            alt="<%= staff.name %>">
+                        <img class="w-50 p-4" src="<%= staff.Image %>" alt="<%= staff.name %>">
 
                         <h3>
                             Name: <%= staff.name %>
                         </h3>
 
-                        <form class=" " action="/modelCheckIn" name="employment"
-                            method="POST">
+                        <form class=" " action="/modelCheckIn" name="employment" method="POST">
                             <!-- gửi ngược lại _id qua req để có thể get ra lại -->
                             <input class="d-none" readonly name="id" type="id"
                                 value="<%= staff._id %>" />
@@ -49,7 +46,8 @@
                                 <option value="HOME">Nhà</option>
                                 <option value="CLIENT">Khách Hàng</option>
                             </select>
-                            <button class="text-white bg-success btnSubmit" type="submit">Check In</button>
+                            <button class="text-white bg-success btnSubmit" type="submit">Check
+                                In</button>
                         </form>
                         <div class="d-flex text-success ">
                             <% if (staff.work) { %>
