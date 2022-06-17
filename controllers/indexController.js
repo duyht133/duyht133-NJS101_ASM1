@@ -16,34 +16,6 @@ exports.CheckI_OController = (req, res, next) => {
   });
 };
 
-exports.contactController = (req, res, next) => {
-  res.render("indexPage/contact", {
-    pageTitle: "Contact",
-    path: "/contact",
-  });
-};
-
-exports.conFirm = (req, res, next) => {
-  res.render("indexPage/conFirm", {
-    pageTitle: "conFirm",
-    path: "/conFirm",
-  });
-};
-
-exports.comfirmTimeController = (req, res, next) => {
-  res.render("indexPage/comfirmTime", {
-    pageTitle: "comfirmTime",
-    path: "/comfirmTime",
-  });
-};
-
-exports.covidInfoController = (req, res, next) => {
-  res.render("indexPage/covidInfo", {
-    pageTitle: "covidInfo",
-    path: "/covidInfo",
-  });
-};
-
 exports.indexcontactController = (req, res, next) => {
   Staff.find()
   .then((data) => {
@@ -54,4 +26,24 @@ exports.indexcontactController = (req, res, next) => {
     });
   })
   .catch((err) => console.log(err));
+};
+
+exports.conFirm = (req, res, next) => {
+  Staff.find()
+  .then((data) => {
+    res.render("indexPage/conFirm", {
+      prods: data,
+      pageTitle: "conFirm",
+      path: "/conFirm",
+    });
+  })
+  .catch((err) => console.log(err));
+};
+
+
+exports.covidInfoController = (req, res, next) => {
+  res.render("indexPage/covidInfo", {
+    pageTitle: "covidInfo",
+    path: "/covidInfo",
+  });
 };

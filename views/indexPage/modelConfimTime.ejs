@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <div <% if (prods.annualLeave > 0) { %>
+    <div <% if (true) { %>
             <div class=" d-flex justify-content-center align-items-center flex-column">
                 <div class="Contact">
                     <form action="/modelContact" name="editContact" method="POST">
@@ -33,31 +33,35 @@
                         <input class="d-none" readonly name="id" type="id" value="<%= prods.id %>" />
                         <h1>Thông tin nhân viên</h1>
                         <h2>
+                            Ngày: <%= date%>
+                        </h2>
+                        <br>
+                        <h2>
                             ID: <%= prods.id%>
                         </h2>
                         <h2>
-                            name: <%= prods.name%>
+                            Tên Nhân Viên: <%= prods.name%>
                         </h2>
                         <h2>
-                            doB: <%= prods.doB%>
+                            Nơi làm việc: <%= prods.employment%>
                         </h2>
                         <h2>
-                            salaryScale: <%= prods.salaryScale%>
+                            Giờ nghỉ đã đăng kí: <%= prods.registerAnnualLeave%>h
                         </h2>
                         <h2>
-                            startDate: <%= prods.startDate%>
+                            Giờ Bắc Đầu: <%= prods.startTime%>
                         </h2>
                         <h2>
-                            department: <%= prods.department%>
+                            Giờ kết thúc: <%= prods.endTime%>
                         </h2>
                         <h2>
-                            annualLeave : <%= prods.annualLeave%>
+                            Tổng số giờ làm : <%= prods.hourWork%>h
                         </h2>
                         <h2>
-                            Image :<input name="image" type="text" value="<%=image%>"> 
+                            Tổng số giờ Tăng ca : <% if (totalTime > 0) { %>
+                                <%= totalTime%>h
+                            <% } %>
                         </h2>
-                        
-                        <button class="btnSubmit" type="submit">gửi</button>
                     </form>
                 </div>
             </div>

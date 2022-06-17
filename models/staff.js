@@ -46,7 +46,13 @@ const staffSchema = new Schema({
   },
   hourWork:{
     type:Number,
-  }
+  },
+  registerAnnualLeave:{
+    type:Number,
+  },
+  endTime:{
+    type: Date,
+  },
 });
 
 module.exports = mongoose.model("Staff", staffSchema)

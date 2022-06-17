@@ -11,8 +11,6 @@ router.get('/conTactIndex',index.indexcontactController)
 
 router.get('/conFirm',index.conFirm)
 
-router.get('/comfirmTime',index.comfirmTimeController)
-
 router.get('/covidInfo',index.covidInfoController)
 
 

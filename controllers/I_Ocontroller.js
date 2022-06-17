@@ -19,7 +19,6 @@ exports.modelCheckIncontroller = (req, res, next) => {
     .then((data) => {
       data.employment = req.body.employment; // lấy employments từ form người dùng chọn.
       data.work = true; // set collection work true hiển thị xác nhận bắc đầu.
-      data.startDate = new Date();
       data.startTime = new Date();
       return data.save(); // lưu dữ liệu lên server
     })
@@ -50,24 +49,21 @@ exports.Outcontroller = (req, res, next) => {
 
 exports.modelCheckOutcontroller = (req, res, next) => {
   Staff.findById(req.body.id) // lấy ID từ form người dùng chọn.
-    /* .then((data) => {
-      return data.save(); 
-    }) */
     .then((data) => {
-      console.log(data);
       // truyền dữ liệu vào modelchekin để hiển thị.
       const newStartTime = new Date().getSeconds();
-      const timeEnd = newStartTime - data.startTime.getSeconds();
+      const hourWork = newStartTime - data.startTime.getSeconds();
       res.render("indexPage/modelCheckOut", {
         name: data.name,
         employment: data.employment,
-        TimeEnd: timeEnd,
+        TimeEnd: hourWork,
         pageTitle: "modelCheckOut",
         path: "/modelCheckOut",
       });
       data.work = false; // set collection work true hiển thị xác nhận bắc đầu.
       if (newStartTime > data.startTime.getSeconds()) {
-        data.hourWork = timeEnd;
+        data.hourWork = hourWork;
+        data.endTime = new Date();
       }
       return data.save(); // lưu dữ liệu lên server
     })
@@ -103,6 +99,7 @@ exports.modelHolidaycontroller = (req, res, next) => {
       if(req.body.newAnnualLeave == data.annualLeave){
         data.annualLeave = totaltimeAnnualLeave
       }
+      data.registerAnnualLeave += parseInt(req.body.time)
       return data.save();
     })
     .catch((err) => console.log(err));
