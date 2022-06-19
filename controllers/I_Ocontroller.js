@@ -20,6 +20,7 @@ exports.modelCheckIncontroller = (req, res, next) => {
       data.employment = req.body.employment; // lấy employments từ form người dùng chọn.
       data.work = true; // set collection work true hiển thị xác nhận bắc đầu.
       data.startTime = new Date();
+      data.startDate = new Date();
       return data.save(); // lưu dữ liệu lên server
     })
     .then((data) => {
@@ -73,7 +74,6 @@ exports.modelCheckOutcontroller = (req, res, next) => {
 exports.holidaycontroller = (req, res, next) => {
   Staff.find()
     .then((data) => {
-      /* console.log(data); */
       res.render("indexPage/holiday", {
         prods: data,
         pageTitle: "holiday",

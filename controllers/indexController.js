@@ -40,10 +40,15 @@ exports.conFirm = (req, res, next) => {
   .catch((err) => console.log(err));
 };
 
-
 exports.covidInfoController = (req, res, next) => {
-  res.render("indexPage/covidInfo", {
-    pageTitle: "covidInfo",
-    path: "/covidInfo",
-  });
+  Staff.find()
+    .then((data) => {
+      console.log(data)
+      res.render("indexPage/covidInfo", {
+        prods: data,
+        pageTitle: "covidInfo",
+        path: "/covidInfo",
+      });
+    })
+    .catch((err) => console.log(err));
 };

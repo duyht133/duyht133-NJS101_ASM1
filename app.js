@@ -8,6 +8,7 @@ const indexRouter = require("./routers/index");
 const checkInOutRouter = require("./routers/checkInOut");
 const contactRouter = require("./routers/conTact");
 const confirmRouter = require("./routers/confirm");
+const covidInfoRouter = require("./routers/covidInfo");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -19,6 +20,7 @@ app.use(indexRouter);
 app.use(checkInOutRouter);
 app.use(contactRouter);
 app.use(confirmRouter);
+app.use(covidInfoRouter);
 app.use(errorController.get404);
 
 

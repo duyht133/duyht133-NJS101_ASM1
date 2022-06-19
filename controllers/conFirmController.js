@@ -3,12 +3,14 @@ const Staff = require("../models/staff");
 exports.conFirmController = (req, res, next) => {
   Staff.findById(req.body.id)
     .then((data) => {
-      const totalTime = data.hourWork + parseInt(data.registerAnnualLeave) - 8;
-      console.log(totalTime);
+      const overtime = data.hourWork + parseInt(data.registerAnnualLeave) - 8;
+      const salaryMonth = data.salaryScale * 3000000 + (overtime - 8) * 200000;
+      console.log(salaryMonth);
       res.render("indexPage/modelConfimTime", {
         prods: data,
-        date: new Date().toString(),
-        totalTime:totalTime,
+        date: data.startDate,
+        overtime: overtime,
+        salaryMonth:salaryMonth,
         pageTitle: "modelConfimTime",
         path: "/modelConfimTime",
       });
