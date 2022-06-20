@@ -25,41 +25,42 @@
 </head>
 
 <body>
-    <div <% if (true) { %>
-            <div class=" d-flex justify-content-center align-items-center flex-column">
-                <div class="Contact">
-                    <form action="/modelCovidInfo" name="editContact" method="POST">
-                        <!-- gửi ngược lại req để có thể get ra lại -->
-                        <input class="d-none" readonly name="id" type="id" value="<%= prods.id %>" />
-                        <h1>Thông tin đăng kí</h1>
-                        <h2>
-                            ID: <%= prods.id%>
-                        </h2>
-                        <h2>
-                            name: <%= prods.name%>
-                        </h2>
-                        <h2>
-                            Đăng kí thân nhiệt :<input name="hypothermia" type="date"> nhiệt độ:<input name="temperature" type="number" >
-                        </h2>
-                        <h2>
-                            tiêm vaccine:
-                            <br>
-                            vaccine liều 1: <input name="vaccine1" type="date"> loại:<input name="vaccinename1" type="text"> 
-                            <br>
-                            vaccine liều 2: <input name="vaccine2" type="date"> loại:<input name="vaccinename2" type="text"> 
-                        </h2>
-                        <h2>
-                            Dương tính: <input name="positive" type="checkbox">
-                        </h2>
-                        <button class="btnSubmit" type="submit">gửi</button>
-                    </form>
-                </div>
+    <% if (true) { %>
+        <div class=" d-flex justify-content-center align-items-center flex-column">
+            <div class="Contact">
+                <form action="/modelCovidInfo" name="editContact" method="POST">
+                    <!-- gửi ngược lại req để có thể get ra lại -->
+                    <input class="d-none" readonly name="id" type="id" value="<%= prods.id %>" />
+                    <h1>Thông tin đăng kí</h1>
+                    <h2>
+                        ID: <%= prods.id%>
+                    </h2>
+                    <h2>
+                        name: <%= prods.name%>
+                    </h2>
+                    <h2>
+                        Đăng kí thân nhiệt :<input name="hypothermia" type="date"> nhiệt độ:<input
+                            name="temperature" type="number">
+                    </h2>
+                    <h2>
+                        tiêm vaccine:
+                        <br>
+                        vaccine liều 1: <input name="vaccine1" type="date"> loại:<input
+                            name="vaccinename1" type="text">
+                        <br>
+                        vaccine liều 2: <input name="vaccine2" type="date"> loại:<input
+                            name="vaccinename2" type="text">
+                    </h2>
+                    <h2>
+                        Dương tính: <input name="positive" type="checkbox">
+                    </h2>
+                    <button class="btnSubmit" type="submit">gửi</button>
+                </form>
             </div>
-                <% } else { %>
-                    <h1>không cho phép đăng kí</h1>
-                    <% } %>
-    </div>
-
+        </div>
+        <% } else { %>
+            <h1>không cho phép đăng kí</h1>
+            <% } %>
 </body>
 
 </html>

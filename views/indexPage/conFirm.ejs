@@ -25,35 +25,30 @@
 </head>
 
 <body>
-    <main class="d-flex align-items-center justify-content-center">
-        <div>
-            <h1>Tra Cứu Thông Tin Giờ Làm</h1>
-        </div>
-        <% if (prods.length> 0) { %>
-            <% for (let staff of prods) { %>
-                <div class="d-flex ">
-                    <div class=" d-flex align-items-center justify-content-center flex-column">
-                        <img class="w-50 p-4"
-                            src="<%= staff.Image %>"
-                            alt="<%= staff.name %>">
-
-                        <h3>
-                            Name: <%= staff.name %>
-                        </h3>
-
-                        <div class="d-flex">
+    <main class="d-flex align-items-center justify-content-center flex-column">
+        <h1>Thông Tin Giờ Làm</h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <% if (prods.length> 0) { %>
+                <% for (let staff of prods) { %>
+                    <div class="d-flex flex-row">
+                        <div class="d-flex align-items-center justify-content-center flex-column">
+                            <img class="w-50 p-4" src="<%= staff.Image %>" alt="<%= staff.name %>">
+                            <h3>
+                                Name: <%= staff.name %>
+                            </h3>
                             <form class="" action="/modelConfimTime" name="info" method="POST">
                                 <input class="d-none" readonly name="id" type="id"
                                     value="<%= staff._id %>" />
-                                <button class="btnSubmit" type="submit">Tra Cứu Time</button>
+                                <button class="btnSubmit" type="submit">Tra Cứu Giờ Làm</button>
                             </form>
                         </div>
                     </div>
-                </div>
-                <% } %>
-                    <% } else { %>
-                        <h1>No staffs Found!</h1>
-                        <% } %>
+                    <% } %>
+                        <% } else { %>
+                            <h1>No staffs Found!</h1>
+                            <% } %>
+        </div>
+        <button class="btn bg-info"><a href="/">Trang chủ</a></button>
     </main>
 </body>
 

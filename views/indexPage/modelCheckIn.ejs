@@ -8,27 +8,34 @@
     <title>
         <%= pageTitle %>
     </title>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/main.css">
 </head>
 
 <body>
-    <% if (name.length> 0) { %>
-        <div class="">
-            <h1>
-                <%= name%>
-            </h1>
-            <h1>
-                <%= employment%>
-            </h1>
-            <h1>
-                <%= startTime%>
-            </h1>
-            <button><a href="/">Home</a></button>
-        </div>
-        <% } 
-        else { %>
-            <h1>No staffs Found!</h1>
-        <% } %>
+    <div>
+        <% if (name.length> 0) { %>
+            <div class="model_chekin_checkout">
+                <h1>
+                    Tên: <%= name%>
+                </h1>
+                <h1>
+                    <% if(employment=="CTY" ){%>
+                        Nơi Làm việc: Công ty
+                        <%} if(employment=="HOME" ){%>
+                            Nơi Làm việc: Nhà
+                            <%} if(employment=="CLIENT" ){%>
+                                Nơi Làm việc: Khách Hàng
+                                <%} %>
+                </h1>
+                <h1>
+                    Thời gian bắc đầu: <%= startTime%>
+                </h1>
+                <button class="btn"><a href="/">Home</a></button>
+            </div>
+            <% } else { %>
+                <h1>No staffs Found!</h1>
+                <% } %>
+    </div>
 </body>
 
 </html>

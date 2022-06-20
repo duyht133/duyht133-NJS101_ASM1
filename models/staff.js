@@ -48,6 +48,9 @@ const staffSchema = new Schema({
   endTime: {
     type: Date,
   },
+  checkout: {
+    type: Boolean,
+  },
   hypothermia: {
     type: Date,
   },

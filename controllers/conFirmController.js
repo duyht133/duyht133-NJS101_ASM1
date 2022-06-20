@@ -8,7 +8,6 @@ exports.conFirmController = (req, res, next) => {
       console.log(salaryMonth);
       res.render("indexPage/modelConfimTime", {
         prods: data,
-        date: data.startDate,
         overtime: overtime,
         salaryMonth:salaryMonth,
         pageTitle: "modelConfimTime",

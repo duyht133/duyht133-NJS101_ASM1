@@ -21,6 +21,7 @@ exports.modelCheckIncontroller = (req, res, next) => {
       data.work = true; // set collection work true hiển thị xác nhận bắc đầu.
       data.startTime = new Date();
       data.startDate = new Date();
+      data.checkout = false;
       return data.save(); // lưu dữ liệu lên server
     })
     .then((data) => {
@@ -65,6 +66,7 @@ exports.modelCheckOutcontroller = (req, res, next) => {
       if (newStartTime > data.startTime.getSeconds()) {
         data.hourWork = hourWork;
         data.endTime = new Date();
+        data.checkout = true;
       }
       return data.save(); // lưu dữ liệu lên server
     })

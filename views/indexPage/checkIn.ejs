@@ -25,42 +25,47 @@
 </head>
 
 <body>
-    <main class="d-flex align-items-center justify-content-center">
-        <% if (prods.length> 0) { %>
-            <% for (let staff of prods) { %>
-                <div class="d-flex ">
-                    <div class=" d-flex align-items-center justify-content-center flex-column">
-                        <img class="w-50 p-4" src="<%= staff.Image %>" alt="<%= staff.name %>">
+    <main class="d-flex align-items-center justify-content-center flex-column">
+        <h1>Chấm Công</h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <% if (prods.length> 0) { %>
+                <% for (let staff of prods) { %>
+                    <div class="d-flex ">
+                        <div class=" d-flex align-items-center justify-content-center flex-column">
+                            <img class="w-50 p-4" src="<%= staff.Image %>" alt="<%= staff.name %>">
 
-                        <h3>
-                            Name: <%= staff.name %>
-                        </h3>
+                            <h3>
+                                Name: <%= staff.name %>
+                            </h3>
 
-                        <form class=" " action="/modelCheckIn" name="employment" method="POST">
-                            <!-- gửi ngược lại _id qua req để có thể get ra lại -->
-                            <input class="d-none" readonly name="id" type="id"
-                                value="<%= staff._id %>" />
-                            <h3>Nơi Làm Việc:</h3>
-                            <select name="employment">
-                                <option value="CTY">Công Ty</option>
-                                <option value="HOME">Nhà</option>
-                                <option value="CLIENT">Khách Hàng</option>
-                            </select>
-                            <button class="text-white bg-success btnSubmit" type="submit">Check
-                                In</button>
-                        </form>
-                        <div class="d-flex text-success ">
-                            <% if (staff.work) { %>
-                                <h3>Success</h3>
-                                <% } %>
+                            <form class="d-flex flex-column" action="/modelCheckIn" name="employment" method="POST">
+                                <!-- gửi ngược lại _id qua req để có thể get ra lại -->
+                                <input class="d-none" readonly name="id" type="id"
+                                    value="<%= staff._id %>" />
+                                <h3>Nơi Làm Việc:</h3>
+                                <select name="employment">
+                                    <option value="CTY">Công Ty</option>
+                                    <option value="HOME">Nhà</option>
+                                    <option value="CLIENT">Khách Hàng</option>
+                                </select>
+                                <br>
+                                <button class="btnSubmit" type="submit">Chấm Công</button>
+                            </form>
+                            <div class="d-flex text-success ">
+                                <% if (staff.work) { %>
+                                    <h3>Success</h3>
+                                    <% } %>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-                <% } %>
+                    <% } %>
                     <% } else { %>
                         <h1>No staffs Found!</h1>
                         <% } %>
+
+        </div>
+        <br>
+        <button class="btn"><a href="/">Trang chủ</a></button>
     </main>
 </body>
 

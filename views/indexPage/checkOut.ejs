@@ -25,36 +25,41 @@
 </head>
 
 <body>
-    <main class="d-flex align-items-center justify-content-center">
-        <% if (prods.length> 0) { %>
-            <% for (let staff of prods) { %>
-                <div class="d-flex ">
-                    <div class=" d-flex align-items-center justify-content-center flex-column">
-                        <img class="w-50 p-4" src="<%= staff.Image %>" alt="<%= staff.name %>">
+    <main class="d-flex align-items-center justify-content-center flex-column">
+        <h1>Kết thúc giờ làm </h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <% if (prods.length> 0) { %>
+                <% for (let staff of prods) { %>
+                    <div class="d-flex ">
+                        <div class=" d-flex align-items-center justify-content-center flex-column">
+                            <img class="w-50 p-4" src="<%= staff.Image %>" alt="<%= staff.name %>">
 
-                        <h3>
-                            Name: <%= staff.name %>
-                        </h3>
+                            <h3>
+                                Name: <%= staff.name %>
+                            </h3>
 
-                        <div class="d-flex">
-                            <form class="" action="/modelCheckOut" name="employment" method="POST">
-                                <input class="d-none" readonly name="id" type="id"
-                                    value="<%= staff._id %>" />
-                                <button type="submit">Check Out</button>
-                            </form>
-                        </div>
+                            <div class="d-flex">
+                                <form class="" action="/modelCheckOut" name="employment"
+                                    method="POST">
+                                    <input class="d-none" readonly name="id" type="id"
+                                        value="<%= staff._id %>" />
+                                    <button class="btnSubmit" type="submit">Check Out</button>
+                                </form>
+                            </div>
 
-                        <div class="d-flex text-danger ">
-                            <% if (staff.work===false) { %>
-                                <h3>End</h3>
-                                <% } %>
+                            <div class="d-flex text-danger ">
+                                <% if (staff.work===false) { %>
+                                    <h3>Kết thúc giờ làm</h3>
+                                    <% } %>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <% } %>
-                    <% } else { %>
-                        <h1>No staffs Found!</h1>
-                        <% } %>
+                    <% } %>
+                        <% } else { %>
+                            <h1>No staffs Found!</h1>
+                            <% } %>
+        </div>
+        <button class="btn bg-info"><a href="/">Trang chủ</a></button>
     </main>
 </body>
 

@@ -26,53 +26,57 @@
 
 <body>
     <div <% if (true) { %>
-            <div class=" d-flex justify-content-center align-items-center flex-column">
-                <div class="Contact">
-                    <form action="/modelContact" name="editContact" method="POST">
-                        <!-- gửi ngược lại req để có thể get ra lại -->
-                        <input class="d-none" readonly name="id" type="id" value="<%= prods.id %>" />
-                        <h1>Thông tin nhân viên</h1>
-                        <h2>
-                            Ngày: <%= date%>
-                        </h2>
-                        <br>
-                        <h2>
-                            ID: <%= prods.id%>
-                        </h2>
-                        <h2>
-                            Tên Nhân Viên: <%= prods.name%>
-                        </h2>
-                        <h2>
-                            Nơi làm việc: <%= prods.employment%>
-                        </h2>
-                        <h2>
-                            Giờ nghỉ đã đăng kí: <%= prods.registerAnnualLeave%>h
-                        </h2>
-                        <h2>
-                            Giờ Bắc Đầu: <%= prods.startTime%>
-                        </h2>
-                        <h2>
-                            Giờ kết thúc: <%= prods.endTime%>
-                        </h2>
-                        <h2>
-                            Tổng số giờ làm : <%= prods.hourWork%>h
-                        </h2>
-                        <h2>
-                            Tổng số giờ Tăng ca : <% if (overtime > 0) { %>
-                                <%= overtime%>h
-                            <% } %>
-                        </h2>
-                        <h2>
-                            Chi tiết lương tháng  : <% if (salaryMonth > 0) { %>
-                                <%= salaryMonth%>
-                            <% } %>
-                        </h2>
-                    </form>
-                </div>
+        <div class=" d-flex justify-content-center align-items-center flex-column">
+            <div class="Contact">
+                <form action="/modelContact" name="editContact" method="POST">
+                    <!-- gửi ngược lại req để có thể get ra lại -->
+                    <input class="d-none" readonly name="id" type="id" value="<%= prods.id %>" />
+                    <h1>Thông tin nhân viên</h1>
+                    <h2>
+                        Ngày: <%= prods.startDate%>
+                    </h2>
+                    <br>
+                    <h2>
+                        ID: <%= prods.id%>
+                    </h2>
+                    <h2>
+                        Tên Nhân Viên: <%= prods.name%>
+                    </h2>
+                    <h2>
+                        Nơi làm việc: <%= prods.employment%>
+                    </h2>
+                    <h2>
+                        Giờ nghỉ đã đăng kí: <%= prods.registerAnnualLeave%>h
+                    </h2>
+                    <h2>
+                        Giờ Bắc Đầu: <%= prods.startTime%>
+                    </h2>
+                    <h2>
+                        Giờ kết thúc: <% if (prods.checkout==true) { %>
+                            <%= prods.endTime%>
+                                <%}%>
+                    </h2>
+                    <h2>
+                        Tổng số giờ làm : <%= prods.hourWork%>h
+                    </h2>
+                    <h2>
+                        Tổng số giờ Tăng ca : <% if (overtime> 0) { %>
+                            <%= overtime%>h
+                                <% } %>
+                    </h2>
+                    <h2>
+                        Chi tiết lương tháng : <% if (salaryMonth> 0) { %>
+                            <%= salaryMonth%>
+                                <% } %>
+                    </h2>
+                    <button class="btn bg-info"><a href="/">Trang chủ</a></button>
+
+                </form>
             </div>
-                <% } else { %>
-                    <h1>không cho phép xem</h1>
-                    <% } %>
+        </div>
+        <% } else { %>
+            <h1>không cho phép xem</h1>
+            <% } %>
     </div>
 
 </body>
